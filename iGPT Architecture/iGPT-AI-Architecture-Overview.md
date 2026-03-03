@@ -37,30 +37,42 @@
 
 # Table of Contents
 
-1. [Executive Summary](#executive-summary)
-2. [iGPT Key Capability Patterns](#igpt-key-capability-patterns)
-3. [iGPT Platform Characteristics](#igpt-platform-characteristics)
-4. [Architecture Overview](#architecture-overview)
-5. [Sub-Architecture: Chat & Conversation Flow](#sub-architecture-chat--conversation-flow)
-6. [Sub-Architecture: Assistant Builder & Lifecycle](#sub-architecture-assistant-builder--lifecycle)
-7. [Sub-Architecture: Data Management & RAG](#sub-architecture-data-management--rag)
-8. [Sub-Architecture: Marketplace & Sharing](#sub-architecture-marketplace--sharing)
-9. [Module Capabilities](#module-capabilities)
+1. [Executive Summary](#1-executive-summary)
+2. [Key Capability Patterns](#2-key-capability-patterns)
+3. [Platform Characteristics](#3-platform-characteristics)
+4. [Architecture Overview](#4-architecture-overview)
+5. [Sub-Architecture: Chat & Conversation Flow](#5-sub-architecture-chat--conversation-flow)
+6. [Sub-Architecture: Assistant Builder & Lifecycle](#6-sub-architecture-assistant-builder--lifecycle)
+7. [Sub-Architecture: Data Management & RAG](#7-sub-architecture-data-management--rag)
+8. [Sub-Architecture: Marketplace & Sharing](#8-sub-architecture-marketplace--sharing)
+9. [Module Capabilities](#9-module-capabilities)
    - [Chat Interface](#chat-interface) · [Assistant Builder](#assistant-builder) · [My Assistants](#my-assistants) · [Data Management](#data-management)
    - [Trainer](#trainer) · [Sharing & Publishing](#sharing--publishing) · [Marketplace](#marketplace) · [Learn & Resources](#learn--resources)
    - [Model Management](#model-management) · [Setup & Configuration](#setup--configuration)
-10. [Security & Governance](#security--governance)
-11. [External Integrations](#external-integrations)
-12. [Related Architecture Patterns](#related-architecture-patterns)
-13. [Appendix A: Component Glossary](#appendix-a-component-glossary)
+10. [External Integrations](#10-external-integrations)
+11. [Implementation Phases](#11-implementation-phases)
+12. [Platform Stage Lanes](#12-platform-stage-lanes)
+13. [TOGAF BDAT Crosswalk](#13-togaf-bdat-crosswalk)
+14. [Ownership & Operating Model](#14-ownership--operating-model)
+15. [L2 Architecture Deliverables](#15-l2-architecture-deliverables)
+16. [Governance & Operations](#16-governance--operations)
+17. [Architectural Flows](#17-architectural-flows)
+18. [Related Architecture Patterns](#18-related-architecture-patterns)
+- [Appendix A: Component Glossary](#appendix-a-component-glossary)
 
 </div>
 
 <div style="page-break-after: always;"></div>
 
-# Executive Summary
+# 1. Executive Summary
 
-iGPT is Intel's internal enterprise Generative AI platform that provides employees with conversational AI capabilities, custom assistant creation, and a marketplace ecosystem for sharing AI solutions across the organisation.
+## Purpose
+
+This document defines the **iGPT AI Architecture** for Intel's internal enterprise Generative AI platform. iGPT provides employees with conversational AI capabilities, custom assistant creation, and a marketplace ecosystem for sharing AI solutions across the organisation.
+
+## Scope
+
+The architecture encompasses three core capabilities:
 
 - **Chat Interface** – Central conversational AI for multi-turn interactions with enterprise LLMs (GPT-4, GPT-3.5, and other models)
 - **Assistant Builder** – No-code wizard for creating, configuring, and publishing custom AI assistants with model selection, system prompts, temperature control, and live testing
@@ -74,13 +86,29 @@ iGPT is Intel's internal enterprise Generative AI platform that provides employe
 - **AGS Entitlements** – Fine-grained access control for Secure Group sharing of assistants
 - **Marketplace Service** – Discovery, publishing, and catalog management for shared assistants
 
-The architecture ensures secure, governed AI assistance while maintaining enterprise identity management and InfoSecurity compliance.
-
 > **InfoSecurity Restriction:** Assistants with attached files can only be published as Private. This is a directive from InfoSecurity, not a technical limitation.
+
+## Key Architectural Principles
+
+| Principle | Description |
+|-----------|-------------|
+| **Self-Service AI** | Any Intel employee can use conversational AI and build custom assistants without code |
+| **Private by Default** | All new assistants default to owner-only access; compliance gate for broader sharing |
+| **Multi-Model Flexibility** | Users select from multiple LLM backends (GPT-4, GPT-3.5, others) per use case |
+| **Knowledge Augmentation** | RAG-powered document grounding enables context-aware, enterprise-specific AI responses |
+| **Marketplace Ecosystem** | Assistants are discoverable, shareable, and reusable across Intel via a central catalog |
+| **Enterprise Identity** | Intel SSO / Azure AD with AGS entitlements for fine-grained access control |
+
+## Business Outcomes
+
+- **Democratized AI Access**: Every Intel employee can access enterprise-grade conversational AI
+- **Rapid AI Solution Development**: No-code assistant builder enables domain experts to create AI solutions in minutes
+- **Knowledge Sharing at Scale**: Marketplace enables reuse of AI assistants across teams and organisations
+- **Governed Self-Service**: Private-by-default with compliance gates ensures InfoSecurity policy compliance
 
 <div style="page-break-after: always;"></div>
 
-# iGPT Key Capability Patterns
+# 2. Key Capability Patterns
 
 The iGPT platform supports four primary interaction patterns:
 
@@ -91,7 +119,7 @@ The iGPT platform supports four primary interaction patterns:
 | **Collaborative** | Share assistants across Intel via the Marketplace. Publish as Public (all employees), Secure Groups (Azure AD groups), or keep Private (owner-only). |
 | **Knowledge-Augmented** | RAG-powered responses grounded in uploaded documents (PDF, DOCX, TXT) and automated data pipelines. Enables context-aware AI within enterprise data. |
 
-# iGPT Platform Characteristics
+# 3. Platform Characteristics
 
 | Characteristic | Description |
 |---|---|
@@ -104,7 +132,7 @@ The iGPT platform supports four primary interaction patterns:
 
 <div style="page-break-after: always;"></div>
 
-# Architecture Overview
+# 4. Architecture Overview
 
 ### *Architecture Overview – iGPT Platform Component Architecture Diagram*
 
@@ -357,7 +385,7 @@ style L6_inner fill:none,stroke:none
 
 <div style="page-break-after: always;"></div>
 
-# Sub-Architecture: Chat & Conversation Flow
+# 5. Sub-Architecture: Chat & Conversation Flow
 
 **Purpose:** Detail the end-to-end conversational flow from user input through LLM processing to streaming response delivery.
 
@@ -470,7 +498,7 @@ class CHATDB,DOCS storage;
 
 <div style="page-break-after: always;"></div>
 
-# Sub-Architecture: Assistant Builder & Lifecycle
+# 6. Sub-Architecture: Assistant Builder & Lifecycle
 
 **Purpose:** Detail the 5-tab assistant creation workflow: Setup, Add Data, Trainer, Thumbnail, and Sharing.
 
@@ -603,7 +631,7 @@ class PRIVATE,PUBLIC,SECURE,OVERVIEW,COMPLY sharing;
 
 <div style="page-break-after: always;"></div>
 
-# Sub-Architecture: Data Management & RAG
+# 7. Sub-Architecture: Data Management & RAG
 
 **Purpose:** Detail the data ingestion, document processing, and Retrieval Augmented Generation pipeline.
 
@@ -715,7 +743,7 @@ class LLM,RESP aimodel;
 
 <div style="page-break-after: always;"></div>
 
-# Sub-Architecture: Marketplace & Sharing
+# 8. Sub-Architecture: Marketplace & Sharing
 
 **Purpose:** Detail the marketplace ecosystem and access control model for assistant sharing.
 
@@ -835,7 +863,7 @@ class MKT_API,MKT_DB,ASST_EXEC backend;
 
 <div style="page-break-after: always;"></div>
 
-# Module Capabilities
+# 9. Module Capabilities
 
 ## Chat Interface
 
@@ -989,21 +1017,7 @@ The Assistant Builder follows a 5-tab workflow: **Setup → Add Data → Trainer
 
 <div style="page-break-after: always;"></div>
 
-# Security & Governance
-
-| Feature | Description |
-|---|---|
-| **Intel SSO** | Enterprise single sign-on authentication for all users |
-| **Azure Active Directory** | Identity provider; user authentication and group management |
-| **AGS Entitlements** | Fine-grained group-based access for Secure Group sharing |
-| **Private by Default** | All new assistants default to owner-only access |
-| **File Privacy** | Assistants with files remain Private (InfoSecurity directive) |
-| **Compliance Gate** | Required checkbox before Public or Secure Group publishing |
-| **Audit / Logs** | Telemetry and audit trail for platform operations |
-
-> **InfoSecurity Directive:** "Assistants with Files can only be published as Private. This is not a technical restriction, but a direction from InfoSecurity."
-
-# External Integrations
+# 10. External Integrations
 
 | Integration | Purpose |
 |---|---|
@@ -1017,7 +1031,348 @@ The Assistant Builder follows a 5-tab workflow: **Setup → Add Data → Trainer
 
 <div style="page-break-after: always;"></div>
 
-# Related Architecture Patterns
+# 11. Implementation Phases
+
+## Phase 1: Platform Foundation
+**Purpose**: Establish core iGPT infrastructure and enterprise authentication
+
+| Deliverable | Description | Status |
+|-------------|-------------|--------|
+| iGPT Web Application | SPA deployment at igpt.intel.com/chat | ✅ Complete |
+| Intel SSO / Azure AD | Enterprise authentication integration | ✅ Complete |
+| LLM Gateway | Multi-model routing (GPT-4, GPT-3.5) | ✅ Complete |
+| Chat Interface | Multi-turn conversational AI with streaming | ✅ Complete |
+| Conversation History | Session persistence and retrieval | ✅ Complete |
+
+**Status Legend**: ✅ Complete = Delivered and operational | 🔄 In Progress = Active development | 📋 Planned = Scheduled for future phase
+
+## Phase 2: Assistant Builder Rollout
+**Purpose**: Enable no-code custom assistant creation
+
+| Deliverable | Description | Status |
+|-------------|-------------|--------|
+| Assistant Builder (5-Tab Wizard) | No-code creation flow | ✅ Complete |
+| Model Selection | Per-assistant LLM selection | ✅ Complete |
+| System Prompt Configuration | Custom instruction support | ✅ Complete |
+| Temperature & Parameter Controls | Creativity tuning | ✅ Complete |
+| Live Testing | Real-time testing in Trainer tab | ✅ Complete |
+| Thumbnail Generation | AI-generated and custom thumbnails | ✅ Complete |
+
+## Phase 3: Marketplace Enablement
+**Purpose**: Enable discovery, sharing, and reuse of assistants across Intel
+
+| Deliverable | Description | Status |
+|-------------|-------------|--------|
+| Marketplace Catalog | Browsing, search, and discovery | ✅ Complete |
+| Access Control (Private/Public/Secure) | Three-tier sharing model | ✅ Complete |
+| AGS Group Integration | Azure AD group-based secure sharing | ✅ Complete |
+| Compliance Gate | Required checkbox for public publishing | ✅ Complete |
+| Bookmark & Favorites | Save assistants for later | ✅ Complete |
+
+## Phase 4: RAG Pipeline Maturity
+**Purpose**: Enable document-grounded AI responses
+
+| Deliverable | Description | Status |
+|-------------|-------------|--------|
+| File Upload RAG | PDF/DOCX/TXT document grounding | ✅ Complete |
+| Document Parser & Chunking | Semantic segmentation pipeline | ✅ Complete |
+| Vector Database | Embedding storage and retrieval | ✅ Complete |
+| Context Reranking | Relevance scoring for retrieved chunks | 🔄 In Progress |
+| Data Pipeline Integration | Automated enterprise data ingestion | 🔄 In Progress |
+| RAG Quality Metrics | Precision, accuracy, citation tracking | 📋 Planned |
+
+## Phase 5: Governance Hardening
+**Purpose**: Strengthen governance, monitoring, and operational controls
+
+| Deliverable | Description | Status |
+|-------------|-------------|--------|
+| Audit Logging | Comprehensive telemetry and audit trail | 🔄 In Progress |
+| Usage Analytics | Token consumption and user metrics | 📋 Planned |
+| Content Safety Controls | Input/output filtering for responsible AI | 📋 Planned |
+| Assistant Lifecycle Management | Versioning, deprecation, retirement | 📋 Planned |
+| SLA Monitoring & Alerting | Platform health dashboards | 📋 Planned |
+
+## Implementation Timeline
+
+```
+Phase 1 [==========] Complete – Platform Foundation
+Phase 2 [==========] Complete – Assistant Builder Rollout
+Phase 3 [==========] Complete – Marketplace Enablement
+Phase 4 [========  ] 80% – RAG Pipeline Maturity
+Phase 5 [===       ] 30% – Governance Hardening
+```
+
+<div style="page-break-after: always;"></div>
+
+# 12. Platform Stage Lanes
+
+## Platform Stage Lanes – Simplified View
+
+This simplified lane view provides an executive-friendly overview of the iGPT platform stages.
+
+| Stage | Components | Responsibility | SLA |
+|-------|------------|----------------|-----|
+| **User Interface** | iGPT Web App (SPA), Chat, Builder panels | Frontend Team | 99.5% availability |
+| **AI Processing** | LLM Gateway, Model Routing, Streaming | AI Platform Team | 99.5% availability |
+| **RAG Pipeline** | Document Parser, Embeddings, Vector DB, Context Engine | Data Engineering | 99.0% availability |
+| **Marketplace** | Catalog, Discovery, Publishing, Access Control | Platform Team | 99.5% availability |
+| **Identity & Access** | Intel SSO, Azure AD, AGS Entitlements | Identity Team | 99.9% availability |
+| **Storage** | Document Store, Vector DB, Marketplace DB, Conversation History | Infrastructure Team | 99.9% availability |
+
+## Stage Summary
+
+| Stage | Components | Key Metric |
+|-------|------------|------------|
+| **Sources** | User input, uploaded documents, data pipelines | Ingestion success rate |
+| **Processing** | LLM Gateway, RAG Engine, context injection | Response latency P95 |
+| **Storage** | Vector DB, Document Store, Marketplace DB | Storage availability |
+| **Serving** | Chat responses, assistant execution, marketplace catalog | User satisfaction |
+| **Governance** | Audit logs, compliance gates, access control | Audit completeness |
+
+<div style="page-break-after: always;"></div>
+
+# 13. TOGAF BDAT Crosswalk
+
+## TOGAF BDAT Crosswalk – Conceptual Mapping
+
+This conceptual mapping aligns the iGPT architecture to TOGAF Business, Data, Application, and Technology (BDAT) domains, supporting enterprise architecture governance.
+
+### Business Architecture (B)
+
+| Capability | Description | Value Delivered |
+|------------|-------------|-----------------|
+| Conversational AI | Natural language chat with enterprise LLMs | Instant AI access for all employees |
+| Custom Assistant Creation | No-code AI solution development | Rapid domain-specific AI solutions |
+| Marketplace Ecosystem | Assistant sharing and discovery | Knowledge reuse at enterprise scale |
+| Document-Grounded Q&A | RAG-powered contextual responses | Accurate, enterprise-specific answers |
+
+### Data Architecture (D)
+
+| Layer | Purpose | Quality Standard |
+|-------|---------|------------------|
+| Document Store | Raw uploaded files (PDF/DOCX/TXT) | Validated format and size |
+| Vector Database | Embeddings for semantic search | Indexed, refreshed on upload |
+| Marketplace Database | Assistant catalog and metadata | Governed, searchable |
+| Conversation History | Session persistence | User-scoped, encrypted |
+
+### Application Architecture (A)
+
+| Application | Role | Integration Pattern |
+|-------------|------|---------------------|
+| iGPT Web Application | User interface (SPA) | REST API to backend |
+| LLM Gateway | Model routing and management | API calls to LLM providers |
+| RAG Engine | Document retrieval and grounding | Vector similarity search |
+| Marketplace Service | Catalog and access control | REST API with AGS |
+| Assistant Builder | No-code creation wizard | Multi-step wizard UI |
+
+### Technology Architecture (T)
+
+| Technology | Purpose | Provider |
+|------------|---------|----------|
+| Azure AD | Identity management | Microsoft |
+| AGS | Enterprise entitlements | Intel |
+| LLM APIs | GPT-4, GPT-3.5, other models | OpenAI / Azure OpenAI |
+| Vector Database | Embedding storage | Platform-managed |
+| Azure Infrastructure | Compute and storage | Microsoft Azure |
+
+<div style="page-break-after: always;"></div>
+
+# 14. Ownership & Operating Model
+
+## Ownership / Operating Model
+
+This view maps iGPT platform components to responsible teams, supporting RACI discussions and operational governance.
+
+## RACI Matrix
+
+| Component | Frontend Team | AI Platform | Data Engineering | Identity Team | Platform Team | Governance |
+|-----------|---------------|-------------|------------------|---------------|---------------|------------|
+| iGPT Web Application | **R/A** | I | I | I | C | I |
+| LLM Gateway | C | **R/A** | I | I | C | I |
+| Chat Interface | **R/A** | C | I | I | I | I |
+| Assistant Builder | **R/A** | C | I | I | C | I |
+| RAG Engine | I | C | **R/A** | I | I | I |
+| Vector Database | I | I | **R/A** | I | C | I |
+| Marketplace Service | I | I | I | I | **R/A** | C |
+| Intel SSO / Azure AD | I | I | I | **R/A** | I | I |
+| AGS Entitlements | I | I | I | **R/A** | C | I |
+| Audit Logging | I | C | I | I | C | **R/A** |
+| Compliance Gate | I | I | I | I | C | **R/A** |
+| InfoSecurity Policies | I | I | I | I | I | **R/A** |
+
+**RACI Legend**:
+| Code | Role | Definition |
+|------|------|------------|
+| **R/A** | Responsible & Accountable | Owns delivery and final decision authority |
+| **C** | Consulted | Provides input before decisions are made |
+| **I** | Informed | Notified after decisions are made |
+
+## Support Model
+
+| Tier | Scope | Team | SLA |
+|------|-------|------|-----|
+| L1 | User issues, access requests, basic chat issues | Service Desk | 4 hours |
+| L2 | Assistant builder issues, marketplace problems | Platform Team | 8 hours |
+| L3 | LLM failures, RAG pipeline issues, performance | AI Platform / Data Engineering | 24 hours |
+| L4 | Architecture, design decisions, governance | Enterprise Architecture | 5 days |
+
+<div style="page-break-after: always;"></div>
+
+# 15. L2 Architecture Deliverables
+
+## Identity & Access Architecture
+- Configure **Intel SSO / Azure AD** as primary identity provider for all iGPT users
+- Implement **AGS Entitlements** for fine-grained group-based access control on Secure Group sharing
+- Define role mappings for platform administration, assistant creation, and marketplace publishing
+- Establish access audit logging for all authentication and authorization events
+
+## Integration Architecture
+- Define **LLM Gateway** routing configuration for multi-model support (GPT-4, GPT-3.5, others)
+- Configure **Data Pipeline** integration for automated enterprise data ingestion
+- Establish **Marketplace API** specifications for assistant publishing, discovery, and execution
+- Define **RAG Engine** integration patterns for vector storage and retrieval
+
+## Security Architecture
+- Implement **Private-by-default** access control for all new assistants
+- Configure **Compliance Gate** workflow for Public and Secure Group publishing
+- Enforce **File Privacy** directive (assistants with files remain Private)
+- Define data classification and handling policies for uploaded documents
+- Establish content safety controls for LLM input/output filtering
+- Configure comprehensive audit logging and telemetry collection
+
+## Platform Architecture
+- Define **Assistant Builder** lifecycle management (create, configure, test, publish, retire)
+- Establish **Marketplace** catalog governance (quality standards, metadata requirements)
+- Configure **LLM Gateway** performance monitoring (latency, error rates, token consumption)
+- Define **RAG Pipeline** quality metrics (retrieval precision, answer accuracy, citation accuracy)
+- Establish platform capacity planning and scaling policies
+
+<div style="page-break-after: always;"></div>
+
+# 16. Governance & Operations
+
+## Governance Framework
+
+### AI Governance
+
+| Domain | Owner | Controls |
+|--------|-------|----------|
+| Model Approval | AI Platform Team | LLM model registry, licensing compliance |
+| Content Safety | AI Platform Team | Input/output filtering, responsible AI policies |
+| Publishing Approval | Governance | Compliance gate for Public/Secure Group sharing |
+| Audit & Evidence | Compliance | Comprehensive logging and telemetry |
+| Data Privacy | InfoSecurity | File privacy directive, data classification |
+
+### Access Governance
+
+| Feature | Description | Enforcement |
+|---------|-------------|-------------|
+| **Intel SSO** | Enterprise single sign-on authentication | All users, all sessions |
+| **Azure AD** | Identity provider; group management | User/group resolution |
+| **AGS Entitlements** | Fine-grained group-based access | Secure Group sharing |
+| **Private by Default** | All new assistants default to owner-only | Assistant creation |
+| **File Privacy** | Assistants with files remain Private | InfoSecurity directive |
+| **Compliance Gate** | Required checkbox before broader sharing | Publishing workflow |
+| **Audit / Logs** | Telemetry and audit trail | All platform operations |
+
+> **InfoSecurity Directive:** "Assistants with Files can only be published as Private. This is not a technical restriction, but a direction from InfoSecurity."
+
+## Operational Procedures
+
+### Monitoring & Alerting
+
+| Metric | Threshold | Action |
+|--------|-----------|--------|
+| LLM Gateway error rate | > 2% | Page on-call AI Platform |
+| Chat response latency P95 | > 5 sec | Investigate model performance |
+| RAG retrieval precision | < 80% | Review RAG pipeline tuning |
+| Marketplace publishing failures | > 1% | Alert Platform Team |
+| Token consumption | > 80% monthly budget | Capacity planning alert |
+
+### Incident Management
+
+| Severity | Definition | Response Time | Resolution Time |
+|----------|------------|---------------|-----------------|
+| P1 | Platform outage (chat/marketplace down) | 15 min | 4 hours |
+| P2 | LLM degradation or RAG failures | 1 hour | 8 hours |
+| P3 | Assistant builder issues, minor bugs | 4 hours | 24 hours |
+| P4 | Enhancement request | 1 week | Sprint planning |
+
+### Change Management
+
+| Change Type | Approval | Lead Time |
+|-------------|----------|-----------|
+| Model addition/update | AI Platform + Governance | 10 days |
+| Platform feature release | Platform Team | 5 days |
+| Security policy update | Governance + InfoSecurity | 5 days |
+| Emergency (security) | Emergency CAB | 2 hours |
+
+<div style="page-break-after: always;"></div>
+
+# 17. Architectural Flows
+
+## Chat Conversation Flow
+```
+User → iGPT Web App → Intel SSO (Authentication) →
+Chat Interface → Message Input → LLM Gateway (Model Routing) →
+Selected LLM (GPT-4/GPT-3.5) → Streaming Response →
+Response Rendering → Conversation History (Persist) → User
+```
+
+## RAG-Grounded Chat Flow
+```
+User → Chat Interface → Message Input →
+RAG Engine (Semantic Search) → Vector DB (Embedding Retrieval) →
+Context Reranking (Relevance Scoring) →
+Context Injection (Prompt Augmentation) →
+LLM Gateway → Selected LLM → Grounded Response with Citations → User
+```
+
+## Assistant Creation Flow
+```
+Creator → Assistant Builder:
+  Tab 1 (Setup): Name + Description →
+  Tab 2 (Add Data): None / Local Files / Pipeline →
+  Tab 3 (Trainer): Model Selection → Temperature → System Prompt → Live Test →
+  Tab 4 (Thumbnail): Generate / Upload / Default →
+  Tab 5 (Sharing): Private (default) / Public / Secure Groups →
+  Compliance Gate (if Public/Secure) → InfoSecurity Check →
+  Save to Marketplace DB → Published
+```
+
+## Marketplace Publishing Flow
+```
+Assistant Owner → My Assistants (Library) → Publish Action →
+Access Control Selection:
+  Private → Save (no gate)
+  Public → Compliance Checkbox → InfoSecurity Gate → Marketplace Catalog
+  Secure Groups → AGS Group Resolver (Azure AD Lookup) → Compliance Checkbox → InfoSecurity Gate → Marketplace Catalog
+
+Consumer → Browse / Search → Marketplace Catalog →
+Run Assistant → Assistant Executor → Chat with Assistant
+```
+
+## Document Ingestion Flow
+```
+User → File Upload API (PDF / DOCX / TXT) → Format Validation →
+Document Parser (Extract / Chunk) → Embedding Generator (Vectorise) →
+Vector Database (Store Embeddings) + Document Store (Store Raw Files)
+
+Data Pipeline → Pipeline Service (Schedule / Monitor) →
+Document Parser → Embedding Generator → Vector Database
+```
+
+## Authentication & Access Flow
+```
+User → iGPT Web App → Intel SSO (Azure AD) →
+Token Validation → Session Establishment →
+AGS Entitlements Check (for Secure Group content) →
+Access Granted / Denied → Platform Features
+```
+
+<div style="page-break-after: always;"></div>
+
+# 18. Related Architecture Patterns
 
 iGPT is one of **three complementary AI architecture patterns** at Intel. Each pattern is purpose-built for a distinct class of use cases and maintains its own runtime, identity model, and governance boundaries.
 

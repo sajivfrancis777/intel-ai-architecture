@@ -36,35 +36,44 @@
 
 # Table of Contents
 
-1. [Executive Summary](#executive-summary)
-2. [Joule Key Capability Patterns](#joule-key-capability-patterns)
-3. [Joule Characteristics (SAP Design Principles)](#joule-characteristics-sap-design-principles)
-4. [Architecture Overview](#architecture-overview)
-5. [Implementation Phases](#implementation-phases)
+1. [Executive Summary](#1-executive-summary)
+2. [Key Capability Patterns](#2-key-capability-patterns)
+3. [Characteristics (SAP Design Principles)](#3-characteristics-sap-design-principles)
+4. [Architecture Overview](#4-architecture-overview)
+5. [Implementation Phases](#5-implementation-phases)
    - [Phase 1 – Foundation & Identity](#phase-1--foundation--identity)
    - [Phase 2 – Joule Assistant Core](#phase-2--joule-Assistant-core-enablement)
    - [Phase 3 – Embedded Agents](#phase-3--embedded-agents-activation)
    - [Phase 4 – Custom Agents](#phase-4--custom-agent-development)
    - [Phase 5 – Governance & Ops](#phase-5--governance--operations)
-6. [Joule Capability Matrix](#joule-capability-matrix)
-7. [Product Capabilities](#product-capabilities)
+6. [Joule Capability Matrix](#6-joule-capability-matrix)
+7. [Product Capabilities](#7-product-capabilities)
    - [S/4HANA Cloud (J4C)](#s4hana-cloud-j4c--joule-capabilities) · [SAC](#sap-analytics-cloud-sac--joule-capabilities) · [Ariba](#ariba--joule-capabilities) · [Concur](#concur--joule-capabilities) · [IBP](#ibp--joule-capabilities)
    - [Fieldglass](#fieldglass--joule-capabilities) · [Commerce/CX](#commerce-cloud-cx--joule-capabilities) · [Signavio](#signavio--joule-capabilities) · [APM](#apm-asset-performance-management--joule-capabilities) · [PAPM](#papm-profitability--performance-mgmt--joule-capabilities)
-   - [BN4L](#bn4l-business-network-for-logistics--joule-capabilities) · [S/4 On-Prem](#s4hana-on-premise-cfin-if-ip--joule-capabilities) · [Build Code/J4D](#sap-build-code--abap-cloud-j4d--joule-capabilities) · [Other Products](#other-cloud-products--joule-capabilities)
+   - [BN4L](#bn4l-business-network-for-logistics--joule-capabilities) · [S/4 On-Prem](#s4hana-on-premise--joule-capabilities) · [Build Code/J4D](#sap-build-code--abap-cloud-j4d--joule-capabilities) · [Other Products](#other-cloud-products--joule-capabilities)
    - [Skills Architecture: Studio vs MCP](#skills-architecture-joule-studio-vs-mcp)
-8. [L2 Architecture Deliverables](#l2-architecture-deliverables)
-   - [Identity & Access](#identity--access-architecture) · [Integration](#integration-architecture) · [Security](#security-architecture) · [Agent](#agent-architecture)
-9. [Architectural Flows](#architectural-flows)
-10. [Related Architecture Patterns](#related-architecture-patterns)
-11. [Appendix A: Component Glossary](#appendix-a-component-glossary)
+8. [Platform Stage Lanes](#8-platform-stage-lanes)
+9. [TOGAF BDAT Crosswalk](#9-togaf-bdat-crosswalk)
+10. [Ownership & Operating Model](#10-ownership--operating-model)
+11. [L2 Architecture Deliverables](#11-l2-architecture-deliverables)
+12. [Governance & Operations](#12-governance--operations)
+13. [Architectural Flows](#13-architectural-flows)
+14. [Related Architecture Patterns](#14-related-architecture-patterns)
+- [Appendix A: Component Glossary](#appendix-a-component-glossary)
 
 </div>
 
 <div style="page-break-after: always;"></div>
 
-# Executive Summary
+# 1. Executive Summary
 
-SAP Joule is an AI-powered Assistant that transforms how users interact with SAP applications. This architecture document defines the enterprise implementation strategy for deploying Joule across Intel's SAP landscape, covering three deployment patterns:
+## Purpose
+
+This document defines the **SAP Joule AI Architecture** for Intel's enterprise SAP landscape. SAP Joule is an AI-powered assistant that transforms how users interact with SAP applications through natural language, delivering transactional, navigational, informational, and analytical capabilities across Intel's SAP portfolio.
+
+## Scope
+
+The architecture encompasses three deployment patterns:
 
 - **Joule Assistant Core** – Central conversational interface for information, navigation, and analytics (powered by SAP AI Core and SAC Just Ask)
 - **Embedded Agents** – SAP-delivered agents activated within LoB applications (Ariba, Concur, IBP, Fieldglass, Commerce Cloud, Signavio, APM, PAPM, BN4L)
@@ -81,17 +90,33 @@ SAP Joule is an AI-powered Assistant that transforms how users interact with SAP
 - **Response Filtering / Responsible AI** – Enterprise security, data privacy, and responsible AI guardrails applied before response delivery
 - **SAP Build Process Automation** – SAP-native workflow and process automation (complements n8n for Intel-specific flows)
 
-The architecture ensures secure, governed, and scalable AI assistance while maintaining enterprise identity management and audit compliance.
-
 **Note:** S/4HANA Cloud (J4C) is a SAP-managed offering where custom agents cannot be built directly; SAP-delivered agents are used instead.
 
 > **Intel-Specific Terminology:** IF = Intel Foundry | IP = Intel Corp / Products | CFIN = Central Finance
 
 > **Other SAP Cloud Products:** SAP SuccessFactors, SAP Datasphere, SAP LeanIX, and SAP DSC are also Joule-enabled SAP cloud solutions depicted in the SAP reference architecture. These are not in current Intel scope but should be considered for future expansion as Joule capabilities mature across the SAP portfolio.
 
+## Key Architectural Principles
+
+| Principle | Description |
+|-----------|-------------|
+| **Contextual Intelligence** | Role-based, context-aware AI assistance within SAP applications |
+| **Native SAP Integration** | Seamless access to SAP backends via Skills, Scenario Catalog, and Knowledge Catalog |
+| **Complementary Runtime** | Joule handles SAP-native AI; ECA/Azure handles analytics; iGPT handles general-purpose AI |
+| **Governed Execution** | Response filtering, responsible AI guardrails, and human-in-the-loop approval gates |
+| **Identity-First Security** | SAP Cloud Identity Services (IAS/IPS) as unified identity foundation |
+| **Extensible Agent Model** | Custom agents via Joule Studio with Skills, MCP, and A2A protocol support |
+
+## Business Outcomes
+
+- **Accelerated SAP User Productivity**: Natural language interaction reduces navigation and task completion time
+- **Governed AI across SAP Portfolio**: Consistent security, audit, and responsible AI compliance across all LoB applications
+- **Extensible Agent Ecosystem**: Custom agents via Joule Studio enable Intel-specific SAP process automation
+- **Enterprise Knowledge Access**: RAGe-powered document grounding provides instant access to SAP and enterprise knowledge
+
 <div style="page-break-after: always;"></div>
 
-# Joule Key Capability Patterns
+# 2. Key Capability Patterns
 
 Per the SAP reference architecture, Joule's capabilities are categorised into four interaction patterns that define how users engage with the copilot:
 
@@ -102,7 +127,7 @@ Per the SAP reference architecture, Joule's capabilities are categorised into fo
 | **Informational** | Provides knowledge-based results (e.g., policy questions). Grounded on SAP-owned content (SAP Help Pages) or customer-owned content via the Document Grounding service and RAGe (Retrieval Augmented Generation for enterprise). |
 | **Analytical** | Delivers insights and data analysis. Users ask questions about business metrics, trends, and performance indicators; Joule returns relevant insights from SAP Analytics Cloud (Just Ask). |
 
-# Joule Characteristics (SAP Design Principles)
+# 3. Characteristics (SAP Design Principles)
 
 | Characteristic | Description |
 |---|---|
@@ -115,7 +140,7 @@ Per the SAP reference architecture, Joule's capabilities are categorised into fo
 
 <div style="page-break-after: always;"></div>
 
-# Architecture Overview
+# 4. Architecture Overview
 
 ### *Architecture Overview – Joule Component Architecture Diagram*
 
@@ -490,7 +515,7 @@ style L8_inner fill:none,stroke:none
 
 <div style="page-break-after: always;"></div>
 
-# Implementation Phases
+# 5. Implementation Phases
 
 ## Phase 1 – Foundation & Identity
 
@@ -1048,7 +1073,7 @@ class N8M,N8W orch;
 
 <div style="page-break-inside: avoid; font-size: 11px;">
 
-# Joule Capability Matrix
+# 6. Joule Capability Matrix
 
 > **How to read:** "Joule Assistant" = embedded conversational UX; "SAPâ€‘delivered Agents" = packaged LoB capabilities; "Skills" = **Required** (Studio) / **Optional** (MCP); "Custom Agents" = developer-built. **WZ Req** = Work Zone required for navigation/CDM role sync (not for custom agents alone).
 
@@ -1075,7 +1100,7 @@ class N8M,N8W orch;
 
 <div style="page-break-after: always;"></div>
 
-# Product Capabilities
+# 7. Product Capabilities
 
 ## S/4HANA Cloud (J4C) – Joule Capabilities
 
@@ -2121,7 +2146,127 @@ classDef step2 fill:#FFF4CE,stroke:#D83B01,stroke-width:2px,rx:8,ry:8,color:#3A2
 
 <div style="page-break-after: always;"></div>
 
-# L2 Architecture Deliverables
+# 8. Platform Stage Lanes
+
+## Platform Stage Lanes – Simplified View
+
+This simplified lane view provides an executive-friendly overview of the Joule deployment stages across the SAP landscape.
+
+| Stage | Components | Responsibility | SLA |
+|-------|------------|----------------|-----|
+| **Identity Foundation** | IAS, IPS, Identity Directory, Work Zone | SAP Basis / Identity Team | 99.9% availability |
+| **AI Infrastructure** | SAP AI Core, AI Launchpad, Generative AI Hub | AI Platform Team | 99.5% availability |
+| **Joule Assistant Core** | Scenario Catalog, Knowledge Catalog, RAGe, Response Filtering | SAP Application Team | 99.5% availability |
+| **Embedded Agents** | LoB-specific agents (Ariba, Concur, IBP, etc.) | LoB Application Teams | 99.5% availability |
+| **Custom Agents** | Joule Studio, Skills Library, Tools, BTP Destinations | Custom Development Team | 99.0% availability |
+| **Connectivity** | Cloud Connector, Connectivity Service, Destination Service, MuleSoft | Integration Team | 99.5% availability |
+| **Governance** | Audit logging, HITL approval gates, AI Launchpad monitoring | Governance / Compliance | 99.9% audit capture |
+
+## Deployment Progression
+
+```
+Stage 1 [==========] Complete – Identity Foundation (IAS/IPS/Work Zone)
+Stage 2 [========  ] 80% – AI Infrastructure (AI Core/Launchpad)
+Stage 3 [======    ] 60% – Joule Assistant Core (Scenario/Knowledge Catalogs)
+Stage 4 [====      ] 40% – Embedded Agents (LoB Activation)
+Stage 5 [==        ] 20% – Custom Agents (Joule Studio/Skills)
+Stage 6 [=         ] 10% – Governance & Operations
+```
+
+<div style="page-break-after: always;"></div>
+
+# 9. TOGAF BDAT Crosswalk
+
+## TOGAF BDAT Crosswalk – Conceptual Mapping
+
+This conceptual mapping aligns the SAP Joule architecture to TOGAF Business, Data, Application, and Technology (BDAT) domains, supporting enterprise architecture governance.
+
+### Business Architecture (B)
+
+| Capability | Description | Value Delivered |
+|------------|-------------|-----------------|
+| SAP Transaction Acceleration | Natural language interaction with SAP business processes | Reduced task completion time |
+| Cross-LoB Agent Assistance | Embedded agents across Ariba, Concur, IBP, and more | Consistent AI experience across SAP portfolio |
+| Knowledge-Driven Decisions | RAGe-powered enterprise knowledge retrieval | Faster, informed decision-making |
+| Analytics Self-Service | SAC Just Ask for natural language business insights | Democratized analytics access |
+
+### Data Architecture (D)
+
+| Layer | Purpose | Quality Standard |
+|-------|---------|------------------|
+| Knowledge Catalog | SAP-owned and customer-owned knowledge base | Curated, version-controlled |
+| Scenario Catalog | Metadata registry of Joule scenarios and skills | Registered, governed |
+| Document Grounding | RAGe-powered retrieval for informational queries | Chunked, embedded, indexed |
+| Identity Directory | User attributes, groups, team memberships | Authoritative, SCIM-synced |
+
+### Application Architecture (A)
+
+| Application | Role | Integration Pattern |
+|-------------|------|---------------------|
+| SAP Build Work Zone | Entry point, navigation, CDM role sync | IPS SCIM provisioning |
+| SAP AI Core | LLM runtime, Generative AI Hub | Dialog Management LLM |
+| Joule Studio | Custom agent development | Skills + MCP + A2A |
+| Scenario Catalog | Scenario/skill registry | REST API lookup |
+| Knowledge Catalog | Knowledge base for RAGe | Document grounding |
+| SAP Cloud Connector | On-prem connectivity | Secure tunnel to S/4HANA |
+| SAP Destination Service | Route management | HTTP + credential management |
+
+### Technology Architecture (T)
+
+| Technology | Purpose | Provider |
+|------------|---------|----------|
+| SAP BTP | Cloud platform for extensions | SAP |
+| SAP AI Core | AI/ML runtime | SAP |
+| SAP Cloud Identity Services | Identity management | SAP |
+| SAP Cloud Connector | On-prem tunnel | SAP |
+| MuleSoft iPaaS | Alternative on-prem API gateway | MuleSoft / Salesforce |
+| n8n | Workflow automation | n8n (open source) |
+
+<div style="page-break-after: always;"></div>
+
+# 10. Ownership & Operating Model
+
+## Ownership / Operating Model
+
+This view maps Joule platform components to responsible teams, supporting RACI discussions and operational governance.
+
+## RACI Matrix
+
+| Component | SAP Basis | Identity Team | LoB App Teams | Custom Dev Team | AI Platform | Governance |
+|-----------|-----------|---------------|---------------|-----------------|-------------|------------|
+| IAS / IPS / Identity Directory | C | **R/A** | I | I | I | I |
+| SAP Build Work Zone | **R/A** | C | I | I | I | I |
+| SAP AI Core / AI Launchpad | C | I | I | C | **R/A** | I |
+| Scenario Catalog | C | I | **R/A** | C | C | I |
+| Knowledge Catalog | I | I | **R/A** | C | C | I |
+| SAP-delivered Agents (LoB) | I | I | **R/A** | I | C | I |
+| Custom Agents (Joule Studio) | I | I | C | **R/A** | C | I |
+| Skills Library | I | I | C | **R/A** | C | I |
+| Cloud Connector / Connectivity | **R/A** | I | I | C | I | I |
+| BTP Destinations | **R/A** | I | I | C | I | I |
+| Response Filtering / Responsible AI | I | I | I | I | C | **R/A** |
+| Audit Logging / Telemetry | I | I | I | I | C | **R/A** |
+| HITL Approval Gates | I | I | C | C | I | **R/A** |
+
+**RACI Legend**:
+| Code | Role | Definition |
+|------|------|------------|
+| **R/A** | Responsible & Accountable | Owns delivery and final decision authority |
+| **C** | Consulted | Provides input before decisions are made |
+| **I** | Informed | Notified after decisions are made |
+
+## Support Model
+
+| Tier | Scope | Team | SLA |
+|------|-------|------|-----|
+| L1 | User issues, Joule access requests | Service Desk | 4 hours |
+| L2 | LoB agent issues, Scenario Catalog gaps | LoB Application Teams | 8 hours |
+| L3 | AI Core issues, custom agent failures | AI Platform / Custom Dev | 24 hours |
+| L4 | Architecture, design decisions, governance | Enterprise Architecture | 5 days |
+
+<div style="page-break-after: always;"></div>
+
+# 11. L2 Architecture Deliverables
 
 <div style="page-break-inside: avoid;">
 
@@ -2161,7 +2306,7 @@ classDef step2 fill:#FFF4CE,stroke:#D83B01,stroke-width:2px,rx:8,ry:8,color:#3A2
 
 <div style="page-break-after: always;"></div>
 
-# L2 Architecture Deliverables...continued
+# 11. L2 Architecture Deliverables...continued
 
 <div style="page-break-inside: avoid;">
 
@@ -2178,7 +2323,62 @@ classDef step2 fill:#FFF4CE,stroke:#D83B01,stroke-width:2px,rx:8,ry:8,color:#3A2
 
 <div style="page-break-after: always;"></div>
 
-# Architectural Flows
+# 12. Governance & Operations
+
+## Governance Framework
+
+### AI Governance
+
+| Domain | Owner | Controls |
+|--------|-------|----------|
+| Model Approval | AI Platform Team | SAP AI Core model registry, Generative AI Hub |
+| Prompt Safety | AI Platform Team | Response Filtering, Responsible AI guardrails |
+| Action Approval | Business Owners | HITL for high-risk actions (postings, master data changes) |
+| Audit & Evidence | Compliance | Comprehensive logging via AI Launchpad telemetry |
+| Responsible AI | Governance | Aligned with SAP AI ethics policy and UNESCO's 10 guiding principles |
+
+### Data Governance
+
+| Domain | Owner | Controls |
+|--------|-------|----------|
+| Knowledge Catalog | LoB Application Teams | Content curation, version control, freshness SLAs |
+| Scenario Catalog | LoB Application Teams | Scenario registration, skill governance |
+| Identity Data | Identity Team | SCIM provisioning, group sync, attribute management |
+| Data Classification | Governance | Classification-based access controls for AI-processed data |
+
+## Operational Procedures
+
+### Monitoring & Alerting
+
+| Metric | Threshold | Action |
+|--------|-----------|--------|
+| Joule response error rate | > 2% | Alert AI Platform Team |
+| AI Core LLM latency P95 | > 5 sec | Investigate model performance |
+| Agent approval backlog | > 25 pending | Escalate to business owners |
+| Response Filtering blocks | > 5% of requests | Review Responsible AI policies |
+| Token consumption | > 80% budget | Alert for capacity planning |
+
+### Incident Management
+
+| Severity | Definition | Response Time | Resolution Time |
+|----------|------------|---------------|-----------------|
+| P1 | Joule platform outage | 15 min | 4 hours |
+| P2 | LoB agent failure (production) | 1 hour | 8 hours |
+| P3 | Custom agent issue | 4 hours | 24 hours |
+| P4 | Enhancement request | 1 week | Sprint planning |
+
+### Change Management
+
+| Change Type | Approval | Lead Time |
+|-------------|----------|-----------|
+| LoB agent activation | LoB Application Team | 5 days |
+| Custom agent deployment | AI Platform + Governance | 10 days |
+| Skills Library update | Custom Dev Team | 3 days |
+| Emergency (security) | Emergency CAB | 2 hours |
+
+<div style="page-break-after: always;"></div>
+
+# 13. Architectural Flows
 
 ## Identity & Access Flow (Foundation)
 ```
@@ -2273,7 +2473,7 @@ Note: BN4L only supports custom agents; no SAP-delivered agents available.
 
 <div style="page-break-after: always;"></div>
 
-# Related Architecture Patterns
+# 14. Related Architecture Patterns
 
 SAP Joule is one of **three complementary AI architecture patterns** at Intel. Each pattern is purpose-built for a distinct class of use cases and maintains its own runtime, identity model, and governance boundaries.
 
