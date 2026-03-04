@@ -1,4 +1,4 @@
-﻿<!-- ============================= -->
+<!-- ============================= -->
 <!--        TITLE PAGE START       -->
 <!-- ============================= -->
 
@@ -16,8 +16,8 @@
 <h1 align="center" style="margin: 0.1em 0;"><strong>Architecture Overview</strong></h1>
 
 <p align="center" style="margin: 0.3em 0;">
-  <strong>Version:</strong> 1.1<br>
-  <strong>Date:</strong> January 2026<br>
+  <strong>Version:</strong> 1.2<br>
+  <strong>Date:</strong> March 2026<br>
   <strong>Prepared by:</strong> Sajiv Francis, Don Meyers<br>
   <strong>Classification:</strong> Internal Use
 </p>
@@ -34,7 +34,7 @@
 
 ---
 
-# Table of Contents
+#  Table of Contents
 
 1. [Executive Summary](#1-executive-summary)
 2. [Key Capability Patterns](#2-key-capability-patterns)
@@ -114,7 +114,7 @@ The architecture encompasses three deployment patterns:
 - **Extensible Agent Ecosystem**: Custom agents via Joule Studio enable Intel-specific SAP process automation
 - **Enterprise Knowledge Access**: RAGe-powered document grounding provides instant access to SAP and enterprise knowledge
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 2. Key Capability Patterns
 
@@ -138,7 +138,7 @@ Per the SAP reference architecture, Joule's capabilities are categorised into fo
 | **Security & Compliance** | Stringent security standards protecting sensitive business data throughout the interaction lifecycle. |
 | **Human-Centric Governance** | Built-in responsible AI safeguards aligned with SAP AI ethics policy and UNESCO's 10 guiding principles on Ethics of AI. |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 4. Architecture Overview
 
@@ -513,7 +513,7 @@ style L8 fill:#FFF8F0,stroke:#E65100,stroke-width:3px
 style L8_inner fill:none,stroke:none
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 5. Implementation Phases
 
@@ -547,7 +547,7 @@ style L8_inner fill:none,stroke:none
 - **Work Zone configuration specifications** (entry point / launchpad role)
 - **AI Core / AI Launchpad setup documentation**
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 ## Phase 2 – Joule Assistant Core Enablement
 
@@ -658,7 +658,7 @@ class SAC cloud;
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 **Key Activities:**
 - Deploy Joule Assistant web client and action bar (via **SAP Build Work Zone** as entry point)
@@ -683,7 +683,7 @@ class SAC cloud;
 - **Work Zone navigation service configuration**
 - **AI Core / Dialog Management LLM connection documentation**
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 ## Phase 3 – Embedded Agents Activation
 
@@ -817,7 +817,7 @@ class BN4L customonly;
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 **Key Activities:**
 - Enable embedded Joule UX in each LoB application
@@ -834,7 +834,7 @@ class BN4L customonly;
 - **Work Zone CDM role sync specifications**
 - Approval workflow specifications
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 ## Phase 4 – Custom Agent Development
 
@@ -1044,7 +1044,7 @@ class N8M,N8W orch;
 - **A2A Protocol** configuration for ECA Platform agent interoperability
 - **MCP connector documentation** (for external tool integration)
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 ## Phase 5 – Governance & Operations
 
@@ -1069,7 +1069,7 @@ class N8M,N8W orch;
 - **AI consumption tracking procedures**
 - **Catalog coverage and utilisation reports**
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 <div style="page-break-inside: avoid; font-size: 11px;">
 
@@ -1098,7 +1098,7 @@ class N8M,N8W orch;
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 7. Product Capabilities
 
@@ -1800,7 +1800,7 @@ style S4SYS fill:none,stroke:none
 style SEC fill:#FBF7FF,stroke:#D8B4FE,stroke-width:2px
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 ### Process Flow: Custom Agent Accessing S/4HANA On-Premise
 
@@ -1962,7 +1962,7 @@ classDef dep fill:#E8F3FF,stroke:#0078D4,stroke-width:2px,color:#004578,rx:8,ry:
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 ## Skills Architecture: Joule Studio vs MCP
 
@@ -2144,7 +2144,7 @@ classDef step2 fill:#FFF4CE,stroke:#D83B01,stroke-width:2px,rx:8,ry:8,color:#3A2
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 8. Platform Stage Lanes
 
@@ -2173,7 +2173,7 @@ Stage 5 [==        ] 20% – Custom Agents (Joule Studio/Skills)
 Stage 6 [=         ] 10% – Governance & Operations
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 9. TOGAF BDAT Crosswalk
 
@@ -2222,7 +2222,7 @@ This conceptual mapping aligns the SAP Joule architecture to TOGAF Business, Dat
 | MuleSoft iPaaS | Alternative on-prem API gateway | MuleSoft / Salesforce |
 | n8n | Workflow automation | n8n (open source) |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 10. Ownership & Operating Model
 
@@ -2264,7 +2264,7 @@ This view maps Joule platform components to responsible teams, supporting RACI d
 | L3 | AI Core issues, custom agent failures | AI Platform / Custom Dev | 24 hours |
 | L4 | Architecture, design decisions, governance | Enterprise Architecture | 5 days |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 11. L2 Architecture Deliverables
 
@@ -2304,7 +2304,7 @@ This view maps Joule platform components to responsible teams, supporting RACI d
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 11. L2 Architecture Deliverables...continued
 
@@ -2321,7 +2321,7 @@ This view maps Joule platform components to responsible teams, supporting RACI d
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 12. Governance & Operations
 
@@ -2376,7 +2376,7 @@ This view maps Joule platform components to responsible teams, supporting RACI d
 | Skills Library update | Custom Dev Team | 3 days |
 | Emergency (security) | Emergency CAB | 2 hours |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 13. Architectural Flows
 
@@ -2471,7 +2471,7 @@ Approval Gate (if required) → Response Filtering → Audit Log → User
 Note: BN4L only supports custom agents; no SAP-delivered agents available.
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 14. Related Architecture Patterns
 
@@ -2499,11 +2499,11 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
 
 | Document | Location |
 |----------|----------|
-| ECA & AI Enablement Architecture | `ECA_AI_Enablement_Architecture_DocumentV1.md` |
-| iGPT Architecture Overview | `Current AI Architecture Options/iGPT-Architecture-Overview.md` |
+| ECA & AI Enablement Architecture | `ECA Architecture/ECA-AI-Architecture-Overview.md` |
+| iGPT Architecture Overview | `iGPT Architecture/iGPT-AI-Architecture-Overview.md` |
 | AI Architecture Selection Guide | `AI-Architecture-Selection-Guide.md` |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 <div style="page-break-inside: avoid; font-size: 10px;">
 
@@ -2547,7 +2547,7 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # Document Control
 
@@ -2560,6 +2560,11 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
 **Classification**: Internal Use  
 **Review Cycle**: Quarterly  
 **Next Review**: June 2026
+
+<p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p>
+
+<p align="center" style="font-size: 10pt; color: #0071c5; font-weight: bold; margin-top: 1em;">SAP Joule AI Architecture Overview</p>
+<p align="center" style="font-size: 9pt; color: #666;">End of Document</p>
 
 <style>
 @media print {
@@ -2582,7 +2587,6 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
     @bottom-left { content: ""; }
     @bottom-right { content: ""; }
   }
-  /* Title page: force single-page fit */
   .title-page {
     page-break-inside: avoid;
     page-break-after: always;
@@ -2597,14 +2601,21 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
   .title-page h3 { font-size: 12pt; margin: 0.1em 0; }
   .title-page h4 { font-size: 11pt; margin: 0.1em 0 0.5em; }
   .title-page p  { margin: 0.2em 0; }
-  body { font-size: 10pt; line-height: 1.4; }
-  h1 { font-size: 18pt; page-break-after: avoid; margin-top: 0.5em; }
-  h2 { font-size: 14pt; page-break-after: avoid; margin-top: 0.4em; }
-  h3 { font-size: 12pt; page-break-after: avoid; margin-top: 0.3em; }
-  table { page-break-inside: avoid; font-size: 9pt; width: 100%; }
-  figure, .mermaid { page-break-inside: avoid; }
-  pre { page-break-inside: avoid; font-size: 8pt; }
-  p { margin: 0.3em 0; }
-  ul, ol { margin: 0.2em 0; }
+  body { font-size: 10pt; line-height: 1.35; }
+  h1 { font-size: 18pt; page-break-after: avoid; margin: 0.4em 0 0.15em; }
+  h2 { font-size: 14pt; page-break-after: avoid; margin: 0.35em 0 0.1em; }
+  h3 { font-size: 12pt; page-break-after: avoid; margin: 0.25em 0 0.08em; }
+  h4 { font-size: 11pt; page-break-after: avoid; margin: 0.2em 0 0.05em; }
+  table { page-break-inside: avoid; font-size: 9pt; width: 100%; margin: 0.25em 0; border-collapse: collapse; }
+  th, td { padding: 2pt 4pt; }
+  figure, .mermaid { page-break-inside: avoid; margin: 0.3em 0; }
+  pre { page-break-inside: avoid; font-size: 8pt; margin: 0.25em 0; padding: 0.3em; }
+  p { margin: 0.2em 0; }
+  ul, ol { margin: 0.15em 0; padding-left: 1.5em; }
+  li { margin: 0.05em 0; }
+  blockquote { margin: 0.2em 0; padding: 0.15em 0.5em; }
+  p, li { orphans: 3; widows: 3; }
+  h1 + *, h2 + *, h3 + *, h4 + * { page-break-before: avoid; }
+  hr { margin: 0.2em 0; }
 }
 </style>

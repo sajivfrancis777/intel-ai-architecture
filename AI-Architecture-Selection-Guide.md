@@ -1,4 +1,4 @@
-<!-- ============================= -->
+﻿<!-- ============================= -->
 <!--        TITLE PAGE START       -->
 <!-- ============================= -->
 
@@ -17,7 +17,7 @@
 <h4 align="center" style="margin: 0.1em 0 0.6em;">SAP Joule &nbsp;|&nbsp; ECA / Azure Copilot Studio &nbsp;|&nbsp; iGPT</h4>
 
 <p align="center" style="margin: 0.3em 0;">
-  <strong>Version:</strong> 1.0<br>
+  <strong>Version:</strong> 1.2<br>
   <strong>Date:</strong> March 2026<br>
   <strong>Prepared by:</strong> Sajiv Francis<br>
   <strong>Classification:</strong> Internal Use
@@ -75,7 +75,7 @@ This guide helps Intel employees, business analysts, solution architects, and IT
 | **IT / Developer** | Review Section 6 (Deep Dives) for technical details and integration patterns |
 | **Program Manager** | Reference Section 8 (Governance) for compliance requirements |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 2. Architecture Patterns Overview
 
@@ -121,7 +121,7 @@ flowchart LR
 | **Who Builds** | SAP developers / admins | Azure / ECA developers | Any Intel employee |
 | **Data Sources** | SAP backends (live transactions) | ECA products (Snowflake/Databricks) | Uploaded files (PDF/DOCX/TXT) |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 3. Quick Selection Guide
 
@@ -144,7 +144,7 @@ flowchart LR
 
 > **Tip:** If your use case spans multiple patterns (e.g., SAP transaction + ECA analytics), see **Section 7 – Hybrid Scenarios**.
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 4. Decision Framework
 
@@ -173,7 +173,7 @@ flowchart LR
   style I fill:#FFF7ED,stroke:#F97316,stroke-width:2px
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 ## Selection Criteria Matrix
 
@@ -192,7 +192,7 @@ When multiple patterns could work, use these weighted criteria to make the final
 
 **Scoring:** ★ = Capability strength (5 = optimal, 0 = not applicable)
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 5. Detailed Use Case Routing
 
@@ -243,7 +243,7 @@ When multiple patterns could work, use these weighted criteria to make the final
 | I9 | Translation / Summarization | Conversational | "Translate this paragraph to Mandarin" | igpt.intel.com + model selection |
 | I10 | Meeting Notes Assistant | Assistive | "Create an assistant that formats meeting notes" | Assistant Builder + prompt template |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 6. Architecture Pattern Deep Dives
 
@@ -323,7 +323,7 @@ flowchart LR
 
 **Notes:** ¹J4C is SAP-managed; use Side-by-Side extensions on BTP. ²BN4L requires custom development only.
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 ## 6.2 ECA / Azure Copilot Studio
 
@@ -396,7 +396,7 @@ flowchart LR
 | Metrics/KPI Tool | KPI Store | Milliseconds | Standard metric definitions |
 | Data Catalog Tool | Unity Catalog | Milliseconds | Field meaning, lineage |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 ## 6.3 iGPT Platform
 
@@ -464,7 +464,7 @@ flowchart LR
 
 > **InfoSecurity Restriction:** Assistants with attached files can only be published as Private.
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 7. Hybrid & Multi-Pattern Scenarios
 
@@ -499,7 +499,7 @@ flowchart LR
 - **iGPT**: Standalone platform — users switch context between iGPT and other patterns
 - **Future Roadmap**: MCP/API integration to enable iGPT assistants as tools within ECA/Azure workflows
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 8. Governance & Compliance:
 
@@ -528,7 +528,7 @@ flowchart LR
 
 **Legend:** ✅ = Fully implemented | ⬜ = Limited or not applicable
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 9. Technology Maturity & Readiness
 
@@ -556,7 +556,7 @@ Understanding each pattern's maturity helps set realistic expectations for timel
 | Governance approvals needed | L2 architecture review | L2 architecture review | None for general use |
 | Estimated setup time | 4–8 weeks (Phase 1) | 2–4 weeks (agent development) | Minutes (self-service) |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 10. Cost, Effort & Time to Value
 
@@ -601,7 +601,7 @@ quadrantChart
 | Support & operations | SAP support contract | Azure + internal ops | Internal IT |
 | Training & enablement | SAP-specific training | Azure/Power Platform | Self-service (minimal) |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 11. Data Sensitivity & Classification
 
@@ -636,7 +636,7 @@ Different data sensitivity levels influence which pattern is appropriate.
 | Data retention policy | SAP-managed | Azure retention rules | Platform-managed |
 | Right to delete | SAP data governance | Azure compliance tools | User can delete assistants/files |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 12. Scalability & Evolution
 
@@ -670,7 +670,7 @@ Different data sensitivity levels influence which pattern is appropriate.
 | **SAP Joule** (transactions) | → ECA/Azure (when cross-domain analytics needed) | SAP data in ECA enables broader analysis |
 | **Any pattern** | → Hybrid (multi-pattern) | Complex use case spans system boundaries |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 13. Getting Started
 
@@ -706,7 +706,7 @@ Different data sensitivity levels influence which pattern is appropriate.
 | ECA/Azure data products or tools | Data Platform / AI-ML team |
 | iGPT account or assistant issues | iGPT platform support (igpt.intel.com) |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 14. FAQ
 
@@ -731,18 +731,17 @@ A: iGPT requires no approval for general use. Joule and ECA/Azure deployments sh
 **Q: What if my SAP product isn't listed for Joule?**  
 A: Check the SAP Joule Architecture Overview for the full capability matrix. Some SAP products (e.g., SuccessFactors, Datasphere, LeanIX) are Joule-enabled but not yet in Intel scope.
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 15. Reference Architecture Documents
 
 | Document | Description | File |
 |----------|-------------|------|
-| **ECA & AI Enablement Architecture** | Master architecture document covering ECA data platform, AI runtimes, and governance | `ECA_AI_Enablement_Architecture_DocumentV1.md` |
-| **SAP Joule Architecture Overview** | Deep-dive into Joule architecture: identity, phases, capability matrix, product capabilities, skills architecture | `Current AI Architecture Options/SAP-Joule-Architecture-Overview.md` |
-| **iGPT Architecture Overview** | Deep-dive into iGPT platform: chat, assistant builder, marketplace, data management, RAG, security | `Current AI Architecture Options/iGPT-Architecture-Overview.md` |
-| **ECA AI Architecture Overview** | Detailed ECA + Azure runtime architecture: data platform, AI tools, implementation phases | `Current AI Architecture Options/ECA-AI-Architecture-Overview.md` |
+| **ECA & AI Enablement Architecture** | ECA data platform (Snowflake/Databricks), Azure AI agent runtime, MCP/n8n tool execution, RAG patterns, agentic workflows, and implementation phases | `ECA Architecture/ECA-AI-Architecture-Overview.md` |
+| **SAP Joule Architecture Overview** | Joule Core on BTP, SAP AI Core, identity & access (IAS/IPS), product capability matrix, Joule Skills architecture, phased implementation roadmap | `Joule Architecture/SAP-Joule-AI-Architecture-Overview.md` |
+| **iGPT Architecture Overview** | Chat interface, no-code Assistant Builder, Marketplace ecosystem, RAG engine, data management pipeline, security model, sharing/publishing workflow | `iGPT Architecture/iGPT-AI-Architecture-Overview.md` |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # Document Control
 
@@ -750,18 +749,16 @@ A: Check the SAP Joule Architecture Overview for the full capability matrix. Som
 |---------|------|--------|---------|
 | 1.0 | March 2026 | Sajiv Francis | Initial release — Three-pattern selection guide (Joule, ECA/Azure, iGPT) |
 | 1.1 | March 2026 | Sajiv Francis | Consolidated cross-pattern content from architecture docs; added Technology Maturity, Cost & Effort, Data Sensitivity, and Scalability sections |
+| 1.2 | March 2026 | Sajiv Francis | Updated reference paths to match repository structure; aligned deep-dive content with latest architecture documents; added print CSS and navigation links |
 
 **Classification**: Internal Use  
 **Review Cycle**: Quarterly  
 **Next Review**: June 2026
 
----
+<p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p>
 
-<p align="center" style="font-size: 9pt; color: #666;">
-  <strong>AI Architecture Selection Guide</strong> | Intel Corporation | March 2026
-</p>
-
-*End of Document*
+<p align="center" style="font-size: 10pt; color: #0071c5; font-weight: bold; margin-top: 1em;">AI Architecture Selection Guide</p>
+<p align="center" style="font-size: 9pt; color: #666;">End of Document</p>
 
 <style>
 @media print {
@@ -784,7 +781,6 @@ A: Check the SAP Joule Architecture Overview for the full capability matrix. Som
     @bottom-left { content: ""; }
     @bottom-right { content: ""; }
   }
-  /* Title page: force single-page fit */
   .title-page {
     page-break-inside: avoid;
     page-break-after: always;
@@ -799,14 +795,21 @@ A: Check the SAP Joule Architecture Overview for the full capability matrix. Som
   .title-page h3 { font-size: 12pt; margin: 0.1em 0; }
   .title-page h4 { font-size: 11pt; margin: 0.1em 0 0.5em; }
   .title-page p  { margin: 0.2em 0; }
-  body { font-size: 10pt; line-height: 1.4; }
-  h1 { font-size: 18pt; page-break-after: avoid; margin-top: 0.5em; }
-  h2 { font-size: 14pt; page-break-after: avoid; margin-top: 0.4em; }
-  h3 { font-size: 12pt; page-break-after: avoid; margin-top: 0.3em; }
-  table { page-break-inside: avoid; font-size: 9pt; width: 100%; }
-  figure, .mermaid { page-break-inside: avoid; }
-  pre { page-break-inside: avoid; font-size: 8pt; }
-  p { margin: 0.3em 0; }
-  ul, ol { margin: 0.2em 0; }
+  body { font-size: 10pt; line-height: 1.35; }
+  h1 { font-size: 18pt; page-break-after: avoid; margin: 0.4em 0 0.15em; }
+  h2 { font-size: 14pt; page-break-after: avoid; margin: 0.35em 0 0.1em; }
+  h3 { font-size: 12pt; page-break-after: avoid; margin: 0.25em 0 0.08em; }
+  h4 { font-size: 11pt; page-break-after: avoid; margin: 0.2em 0 0.05em; }
+  table { page-break-inside: avoid; font-size: 9pt; width: 100%; margin: 0.25em 0; border-collapse: collapse; }
+  th, td { padding: 2pt 4pt; }
+  figure, .mermaid { page-break-inside: avoid; margin: 0.3em 0; }
+  pre { page-break-inside: avoid; font-size: 8pt; margin: 0.25em 0; padding: 0.3em; }
+  p { margin: 0.2em 0; }
+  ul, ol { margin: 0.15em 0; padding-left: 1.5em; }
+  li { margin: 0.05em 0; }
+  blockquote { margin: 0.2em 0; padding: 0.15em 0.5em; }
+  p, li { orphans: 3; widows: 3; }
+  h1 + *, h2 + *, h3 + *, h4 + * { page-break-before: avoid; }
+  hr { margin: 0.2em 0; }
 }
 </style>

@@ -17,8 +17,8 @@
 <h1 align="center" style="margin: 0.1em 0;"><strong>AI Enablement Architecture</strong></h1>
 
 <p align="center" style="margin: 0.3em 0;">
-  <strong>Version:</strong> 1.0<br>
-  <strong>Date:</strong> February 2026<br>
+  <strong>Version:</strong> 1.2<br>
+  <strong>Date:</strong> March 2026<br>
   <strong>Prepared by:</strong> Sajiv Francis, Don Meyers<br>
   <strong>Classification:</strong> Internal Use
 </p>
@@ -93,7 +93,7 @@ The architecture encompasses:
 - **AI-Powered Automation**: Agents and GenAI capabilities augment business processes
 - **Governed Self-Service**: Controlled access to enterprise data products
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 2. AI Architecture Patterns & Routing Guide
 
@@ -164,9 +164,9 @@ The Selection Guide provides:
 
 | Pattern | Reference Document | Location |
 |---------|-------------------|----------|
-| **SAP Joule** | SAP Joule Architecture Overview | `Current AI Architecture Options/SAP-Joule-Architecture-Overview.md` |
-| **ECA / Azure** | This document (Sections 4–16) | `ECA_AI_Enablement_Architecture_DocumentV1.md` |
-| **iGPT** | iGPT Architecture Overview | `Current AI Architecture Options/iGPT-Architecture-Overview.md` |
+| **SAP Joule** | SAP Joule Architecture Overview | `Joule Architecture/SAP-Joule-AI-Architecture-Overview.md` |
+| **ECA / Azure** | This document (Sections 4–16) | `ECA Architecture/ECA-AI-Architecture-Overview.md` |
+| **iGPT** | iGPT Architecture Overview | `iGPT Architecture/iGPT-AI-Architecture-Overview.md` |
 | **Selection Guide** | AI Architecture Selection Guide | `AI-Architecture-Selection-Guide.md` |
 
 # 3. Key Capability Patterns
@@ -186,7 +186,7 @@ The Selection Guide provides:
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 4. Architecture Overview (L0)
 
@@ -355,7 +355,8 @@ and/or BDC-governed data products"]
   style CONS fill:#F8FAFC,stroke:#334155,stroke-width:1px
   style NOTE fill:#FEF3C7,stroke:#D97706,stroke-width:1px,stroke-dasharray: 5 5
 ```
-<div style="page-break-after: always;"></div>
+
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 ## User Interaction Model
 
@@ -397,7 +398,7 @@ This architecture adopts a **complementary runtime model** where Joule Studio (S
 | **Governance** | Centralized policy enforcement via guardrails and audit |
 | **Flexibility** | Dual landing patterns support batch and real-time use cases |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 5. Data Platform Architecture (L1-A)
 
@@ -518,7 +519,7 @@ The **Enterprise Cloud Analytics (ECA)** platform boundary encompasses:
 | **Data Freshness** | T+1 to T+0 (batch) | Near real-time |
 | **Use Cases** | Reporting, analytics, ML | Operational, monitoring |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 6. Data Products & Serving (L1-B)
 
@@ -677,7 +678,7 @@ This matrix defines **which AI/BI consumers can access which data products** and
 - **ABAC (Attribute-Based)**: Data classification, user attributes, and context determine row-level filtering and column masking
 - **Combined enforcement**: A consumer must have both the correct role (RBAC) AND satisfy attribute conditions (ABAC) to access data
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 7. AI Build Modes Comparison (L1-C)
 
@@ -737,8 +738,9 @@ flowchart LR
 | **Memory Governance** | ⬜ N/A | ⬜ Optional | ✅ Required |
 
 **Legend**: ✅ Required = Must implement | ✅ Recommended = Strongly advised | ⬜ Optional = Implement if needed | ⬜ N/A = Not applicable to this mode
+href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a 
 
 # 8. AI Platform Tool Lifecycle (L1-D)
 
@@ -828,7 +830,7 @@ All AI tool calls—whether through Joule Studio or Copilot Studio—follow a go
 | **Execute** | Invoke the tool | Joule Skills (SAP) or MCP (ECA/non-SAP) |
 | **Audit** | Record outcomes | Logs, traces, evidence retention |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 9. GenAI RAG Implementation (L2-D)
 
@@ -973,7 +975,7 @@ The complementary runtime model extends to RAG retrieval—**SAP/Joule and Azure
 | Citation Accuracy | > 95% | Valid citations / total citations |
 | Response Latency | < 3 sec | P95 end-to-end time |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 10. Agent Runtime Implementation (L2-E)
 
@@ -1082,7 +1084,7 @@ flowchart LR
 | **Rate Limiting** | API calls | Token bucket |
 | **Audit Logging** | All operations | Post-execution capture |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 11. Platform Stage Lanes
 
@@ -1148,7 +1150,7 @@ flowchart LR
 | **ECA** | ADLS, Databricks, Snowflake | Data Platform Team | 99.9% availability |
 | **Consumption** | Power BI (DARC) | BI Team | < 10 sec query response |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 12. TOGAF BDAT Crosswalk
 
@@ -1252,7 +1254,7 @@ flowchart LR
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 13. Ownership & Operating Model
 
@@ -1365,7 +1367,7 @@ flowchart LR
 
 </div>
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 14. Implementation Phases
 
@@ -1396,6 +1398,8 @@ flowchart LR
 
 **L2 Deliverables**: NRT architecture, latency requirements
 
+<div style="page-break-inside: avoid;">
+
 ## Phase 3: Enterprise Data Products
 **Purpose**: Create reusable, governed data products
 
@@ -1421,6 +1425,8 @@ flowchart LR
 | Observability | Tracing, metrics, logging | 📋 Planned |
 
 **L2 Deliverables**: AI platform architecture, security controls
+
+<div style="page-break-inside: avoid;">
 
 ## Phase 5: Agent Studio Enablement
 **Purpose**: Enable custom agent development on both platforms
@@ -1460,7 +1466,7 @@ Phase 5 [          ] 0% - Agent Studio Enablement
 Phase 6 [          ] 0% - Governance & Operations
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 15. L2 Architecture Deliverables
 
@@ -1522,7 +1528,7 @@ SAP S/4HANA → SLT (CDC) → SideCar HANA → CIF → Snowflake Speed Layer
 - Sub-minute latency
 - Schema-on-read with validation
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 ## 15.3 Security Architecture
 
@@ -1650,7 +1656,7 @@ The Azure runtime accesses ECA data via governed MCP tools (Snowflake queries, D
 | Rate limiting | Token bucket | All API calls |
 | Audit logging | Application Insights | All operations |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 16. Governance & Operations
 
@@ -1702,7 +1708,7 @@ The Azure runtime accesses ECA data via governed MCP tools (Snowflake queries, D
 | Normal | CAB | 5 days |
 | Emergency | Emergency CAB | 2 hours |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
 
 # 17. Architectural Flows
 
@@ -1796,6 +1802,8 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
 | iGPT Architecture Overview | `iGPT Architecture/iGPT-AI-Architecture-Overview.md` |
 | AI Architecture Selection Guide | `AI-Architecture-Selection-Guide.md` |
 
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
+
 # Appendix A: Component Glossary
 
 | Abbreviation | Full Name | Description |
@@ -1820,6 +1828,8 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
 | **SLT** | SAP Landscape Transformation | SAP replication service |
 | **SoD** | Segregation of Duties | Control preventing conflict of interest |
 
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p></div>
+
 # Document Control
 
 | Version | Date | Author | Changes |
@@ -1832,32 +1842,9 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
 **Review Cycle**: Quarterly  
 **Next Review**: June 2026
 
----
-
-<p align="center" style="font-size: 9pt; color: #666;">
-  <strong>ECA AI Architecture Overview</strong> | Intel Corporation | February 2026
-</p>
-
-*End of Document*
-
-<!-- ============================= -->
-<!--     PDF STYLING & HEADERS     -->
-<!-- ============================= -->
-
-<!--
-PDF EXPORT INSTRUCTIONS:
-========================
-For VS Code "Markdown PDF" extension, add these settings to your settings.json:
-{
-  "markdown-pdf.displayHeaderFooter": true,
-  "markdown-pdf.headerTemplate": "<div></div>",
-  "markdown-pdf.footerTemplate": "<div style='font-size: 9px; width: 100%; padding: 0 20px; display: flex; justify-content: space-between;'><span>Page <span class='pageNumber'></span> of <span class='totalPages'></span></span><span style='color: #0071c5; font-weight: bold;'>ECA AI Architecture Overview</span></div>",
-  "markdown-pdf.margin.bottom": "1cm"
-}
-
-For Pandoc, use:
-pandoc input.md -o output.pdf --pdf-engine=xelatex -V footer-center="ECA AI Architecture Overview" -V footer-right="Page \thepage"
--->
+<p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p>
+<p align="center" style="font-size: 10pt; color: #0071c5; font-weight: bold; margin-top: 1em;">ECA AI Architecture Overview</p>
+<p align="center" style="font-size: 9pt; color: #666;">End of Document</p>
 
 <style>
 @media print {
@@ -1870,7 +1857,7 @@ pandoc input.md -o output.pdf --pdf-engine=xelatex -V footer-center="ECA AI Arch
       color: #666;
     }
     @bottom-right {
-      content: "ECA AI Architecture Overview";
+      content: "iGPT Architecture Overview";
       font-size: 9pt;
       color: #0071c5;
       font-weight: bold;
@@ -1880,7 +1867,6 @@ pandoc input.md -o output.pdf --pdf-engine=xelatex -V footer-center="ECA AI Arch
     @bottom-left { content: ""; }
     @bottom-right { content: ""; }
   }
-  /* Title page: force single-page fit */
   .title-page {
     page-break-inside: avoid;
     page-break-after: always;
@@ -1895,7 +1881,6 @@ pandoc input.md -o output.pdf --pdf-engine=xelatex -V footer-center="ECA AI Arch
   .title-page h3 { font-size: 12pt; margin: 0.1em 0; }
   .title-page h4 { font-size: 11pt; margin: 0.1em 0 0.5em; }
   .title-page p  { margin: 0.2em 0; }
-  /* Global compact spacing */
   body { font-size: 10pt; line-height: 1.35; }
   h1 { font-size: 18pt; page-break-after: avoid; margin: 0.4em 0 0.15em; }
   h2 { font-size: 14pt; page-break-after: avoid; margin: 0.35em 0 0.1em; }
@@ -1909,11 +1894,8 @@ pandoc input.md -o output.pdf --pdf-engine=xelatex -V footer-center="ECA AI Arch
   ul, ol { margin: 0.15em 0; padding-left: 1.5em; }
   li { margin: 0.05em 0; }
   blockquote { margin: 0.2em 0; padding: 0.15em 0.5em; }
-  /* Prevent orphan/widow lines */
   p, li { orphans: 3; widows: 3; }
-  /* Keep heading + following content together */
   h1 + *, h2 + *, h3 + *, h4 + * { page-break-before: avoid; }
-  /* Compact horizontal rules */
   hr { margin: 0.2em 0; }
 }
 </style>

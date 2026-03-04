@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/classification-Internal%20Use-blue" alt="Internal Use" />
-  <img src="https://img.shields.io/badge/version-1.0-green" alt="Version 1.0" />
+  <img src="https://img.shields.io/badge/version-1.2-green" alt="Version 1.2" />
   <img src="https://img.shields.io/badge/date-March%202026-lightgrey" alt="March 2026" />
 </p>
 
@@ -29,22 +29,24 @@ This repository contains the enterprise architecture documentation for Intel's A
 ## Repository Structure
 
 ```
-├── AI-Architecture-Selection-Guide.md    # Cross-pattern selection guide & decision framework
+├── AI-Architecture-Selection-Guide.md    # Cross-pattern selection guide & decision framework (v1.2)
 ├── AI-Architecture-Selection-Guide.pdf   # PDF export of the selection guide
-├── aiarchitectureintel.png               # Banner image for the selection guide
+├── aiarchitectureintel.png               # Banner image for all documents
+├── print-overrides.css                   # Print CSS overrides for PDF export
+├── README.md                             # This file
 │
 ├── Joule Architecture/
-│   ├── SAP-Joule-AI-Architecture-Overview.md    # SAP Joule deep-dive architecture document
+│   ├── SAP-Joule-AI-Architecture-Overview.md    # SAP Joule deep-dive architecture document (v1.2)
 │   ├── SAP-Joule-AI-Architecture-Overview.pdf   # PDF export
 │   └── SAP-AI-Joule-Assistant.png               # Joule banner image
 │
 ├── ECA Architecture/
-│   ├── ECA-AI-Architecture-Overview.md           # ECA & AI Enablement architecture document
+│   ├── ECA-AI-Architecture-Overview.md           # ECA & AI Enablement architecture document (v1.2)
 │   ├── ECA-AI-Architecture-Overview.pdf          # PDF export
 │   └── ECAAIArchitecture.png                     # ECA banner image
 │
 └── iGPT Architecture/
-    ├── iGPT-AI-Architecture-Overview.md          # iGPT platform architecture document
+    ├── iGPT-AI-Architecture-Overview.md          # iGPT platform architecture document (v1.1)
     ├── iGPT-AI-Architecture-Overview.pdf         # PDF export
     └── InteliGPT.jpg                             # iGPT banner image
 ```
@@ -61,31 +63,31 @@ This repository contains the enterprise architecture documentation for Intel's A
 - Hybrid & multi-pattern scenarios
 - Governance, cost, data sensitivity, and scalability comparisons
 
-📄 [AI-Architecture-Selection-Guide.md](AI-Architecture-Selection-Guide.md)
+📄 [AI-Architecture-Selection-Guide.md](AI-Architecture-Selection-Guide.md) &nbsp;|&nbsp; v1.2
 
 ---
 
 ### SAP Joule — Architecture Overview
 
-Deep-dive into SAP Joule's AI copilot architecture embedded in SAP applications. Covers identity & access (IAS/IPS), Joule Core on BTP, AI Foundation (SAP AI Core), phased implementation roadmap, product capability matrix, and the Joule Skills architecture for custom agent development.
+Deep-dive into SAP Joule's AI copilot architecture embedded in SAP applications. Covers identity & access (IAS/IPS), Joule Core on BTP, AI Foundation (SAP AI Core), phased implementation roadmap, product capability matrix, Joule Skills architecture for custom agent development, TOGAF BDAT crosswalk, and Related Architecture Patterns (three-pattern model).
 
-📄 [Joule Architecture/SAP-Joule-AI-Architecture-Overview.md](Joule%20Architecture/SAP-Joule-AI-Architecture-Overview.md)
+📄 [Joule Architecture/SAP-Joule-AI-Architecture-Overview.md](Joule%20Architecture/SAP-Joule-AI-Architecture-Overview.md) &nbsp;|&nbsp; v1.2
 
 ---
 
 ### ECA & AI Enablement — Architecture Overview
 
-Detailed architecture for Intel's Enterprise Cloud Analytics (ECA) data platform and Azure-based AI runtime. Covers the Snowflake/Databricks data lakehouse, Azure AI agent orchestration, MCP/n8n tool execution, RAG patterns, agentic workflows, and implementation phases.
+Detailed architecture for Intel's Enterprise Cloud Analytics (ECA) data platform and Azure-based AI runtime. Covers the Snowflake/Databricks data lakehouse, Azure AI agent orchestration, MCP/n8n tool execution, RAG patterns, agentic workflows, capability patterns, TOGAF BDAT crosswalk, implementation phases, and Related Architecture Patterns.
 
-📄 [ECA Architecture/ECA-AI-Architecture-Overview.md](ECA%20Architecture/ECA-AI-Architecture-Overview.md)
+📄 [ECA Architecture/ECA-AI-Architecture-Overview.md](ECA%20Architecture/ECA-AI-Architecture-Overview.md) &nbsp;|&nbsp; v1.2
 
 ---
 
 ### iGPT — Architecture Overview
 
-Architecture documentation for Intel's internal Generative AI platform. Covers the chat interface, no-code Assistant Builder, Marketplace ecosystem, RAG engine, data management pipeline, security model, and sharing/publishing workflow.
+Architecture documentation for Intel's internal Generative AI platform. Covers the chat interface, no-code Assistant Builder, Marketplace ecosystem, RAG engine, data management pipeline, security model, sharing/publishing workflow, TOGAF BDAT crosswalk, and Related Architecture Patterns.
 
-📄 [iGPT Architecture/iGPT-AI-Architecture-Overview.md](iGPT%20Architecture/iGPT-AI-Architecture-Overview.md)
+📄 [iGPT Architecture/iGPT-AI-Architecture-Overview.md](iGPT%20Architecture/iGPT-AI-Architecture-Overview.md) &nbsp;|&nbsp; v1.1
 
 ---
 
@@ -97,6 +99,17 @@ Architecture documentation for Intel's internal Generative AI platform. Covers t
 | **Solution Architect** | [Selection Guide — Decision Framework](AI-Architecture-Selection-Guide.md#4-decision-framework) |
 | **IT / Developer** | Individual architecture deep-dives (Joule, ECA, or iGPT) |
 | **Program Manager** | [Selection Guide — Governance](AI-Architecture-Selection-Guide.md#8-governance--compliance) |
+
+## Recent Changes (March 2026)
+
+| Document | Version | Key Changes |
+|----------|---------|-------------|
+| **Selection Guide** | 1.2 | Updated reference paths to match repository structure; aligned deep-dive content with latest architecture documents; added print CSS optimization and TOC navigation links; added End of Document footer |
+| **ECA Architecture** | 1.2 | Restructured Section 2: moved detailed use case routing to standalone Selection Guide; retained high-level pattern comparison; added TOGAF BDAT crosswalk, Related Architecture Patterns, optimized print CSS, TOC navigation |
+| **Joule Architecture** | 1.2 | Added Related Architecture Patterns section (three-pattern model); cross-references to Selection Guide; optimized print CSS, TOC navigation |
+| **iGPT Architecture** | 1.1 | Added Related Architecture Patterns section (three-pattern model); cross-references to Selection Guide; optimized print CSS, TOC navigation |
+
+---
 
 ## Authors
 

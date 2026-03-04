@@ -17,7 +17,7 @@
 <h3 align="center" style="margin: 0.1em 0;">Intel Generative Pre-trained Transformer Platform</h3>
 
 <p align="center" style="margin: 0.3em 0;">
-  <strong>Version:</strong> 1.0<br>
+  <strong>Version:</strong> 1.1<br>
   <strong>Date:</strong> March 2026<br>
   <strong>Prepared by:</strong> Sajiv Francis<br>
   <strong>Classification:</strong> Internal Use
@@ -35,7 +35,7 @@
 
 ---
 
-# Table of Contents
+#  Table of Contents
 
 1. [Executive Summary](#1-executive-summary)
 2. [Key Capability Patterns](#2-key-capability-patterns)
@@ -106,7 +106,7 @@ The architecture encompasses three core capabilities:
 - **Knowledge Sharing at Scale**: Marketplace enables reuse of AI assistants across teams and organisations
 - **Governed Self-Service**: Private-by-default with compliance gates ensures InfoSecurity policy compliance
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 2. Key Capability Patterns
 
@@ -130,7 +130,7 @@ The iGPT platform supports four primary interaction patterns:
 | **Security by Default** | SSO authentication, Azure AD group access, private-by-default assistants, and InfoSecurity compliance enforcement. |
 | **Model Flexibility** | Multiple LLM options (GPT-4, GPT-3.5, others) with per-session model selection and temperature control via API gateway. |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 4. Architecture Overview
 
@@ -383,7 +383,7 @@ style L6 fill:#FFF8EE,stroke:#D97706,stroke-width:3px
 style L6_inner fill:none,stroke:none
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 5. Sub-Architecture: Chat & Conversation Flow
 
@@ -495,8 +495,6 @@ class CHATDB,DOCS storage;
 - **Model Selector** – Per-session model choice (GPT-4, GPT-3.5, others); configurable temperature and parameters
 - **RAG Engine** – Retrieves relevant document chunks from Vector DB when assistant has attached data
 - **Response Composer** – Formats LLM output and streams tokens in real-time back to the UI
-
-<div style="page-break-after: always;"></div>
 
 # 6. Sub-Architecture: Assistant Builder & Lifecycle
 
@@ -629,7 +627,7 @@ class PRIVATE,PUBLIC,SECURE,OVERVIEW,COMPLY sharing;
 - **Live Testing** – "Start Chatting" in the Trainer tab provides real-time testing against the configured LLM
 - **AI Thumbnails** – Users can write a prompt to generate a thumbnail image, upload a custom image, or use the platform default
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 7. Sub-Architecture: Data Management & RAG
 
@@ -741,7 +739,7 @@ class LLM,RESP aimodel;
 
 **Data Restriction:** File-attached assistants remain Private per InfoSecurity directive.
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 8. Sub-Architecture: Marketplace & Sharing
 
@@ -861,7 +859,7 @@ class MKT_API,MKT_DB,ASST_EXEC backend;
 - **Azure AD Groups** – Secure Group sharing resolves membership against Azure AD; only Azure AD groups are visible in the iGPT interface
 - **Compliance Gate** – Both Public and Secure Group sharing require an explicit compliance checkbox before publishing
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 9. Module Capabilities
 
@@ -965,7 +963,7 @@ The Assistant Builder follows a 5-tab workflow: **Setup → Add Data → Trainer
 | Default | Use the platform's default assistant icon |
 | Select Thumbnail | Preview generated / uploaded options and confirm the final selection |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 ## Sharing & Publishing
 
@@ -1015,7 +1013,7 @@ The Assistant Builder follows a 5-tab workflow: **Setup → Add Data → Trainer
 | Configuration Flow | Multi-step setup workflow |
 | Platform Settings | General platform preferences |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 10. External Integrations
 
@@ -1029,7 +1027,7 @@ The Assistant Builder follows a 5-tab workflow: **Setup → Add Data → Trainer
 | **Data Pipeline Sources** | Automated data ingestion from enterprise systems |
 | **InfoSecurity** | Policy enforcement for publishing and data compliance |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 11. Implementation Phases
 
@@ -1102,7 +1100,7 @@ Phase 4 [========  ] 80% – RAG Pipeline Maturity
 Phase 5 [===       ] 30% – Governance Hardening
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 12. Platform Stage Lanes
 
@@ -1129,7 +1127,7 @@ This simplified lane view provides an executive-friendly overview of the iGPT pl
 | **Serving** | Chat responses, assistant execution, marketplace catalog | User satisfaction |
 | **Governance** | Audit logs, compliance gates, access control | Audit completeness |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 13. TOGAF BDAT Crosswalk
 
@@ -1175,7 +1173,7 @@ This conceptual mapping aligns the iGPT architecture to TOGAF Business, Data, Ap
 | Vector Database | Embedding storage | Platform-managed |
 | Azure Infrastructure | Compute and storage | Microsoft Azure |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 14. Ownership & Operating Model
 
@@ -1216,7 +1214,7 @@ This view maps iGPT platform components to responsible teams, supporting RACI di
 | L3 | LLM failures, RAG pipeline issues, performance | AI Platform / Data Engineering | 24 hours |
 | L4 | Architecture, design decisions, governance | Enterprise Architecture | 5 days |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 15. L2 Architecture Deliverables
 
@@ -1247,7 +1245,7 @@ This view maps iGPT platform components to responsible teams, supporting RACI di
 - Define **RAG Pipeline** quality metrics (retrieval precision, answer accuracy, citation accuracy)
 - Establish platform capacity planning and scaling policies
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 16. Governance & Operations
 
@@ -1307,7 +1305,7 @@ This view maps iGPT platform components to responsible teams, supporting RACI di
 | Security policy update | Governance + InfoSecurity | 5 days |
 | Emergency (security) | Emergency CAB | 2 hours |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 17. Architectural Flows
 
@@ -1370,7 +1368,7 @@ AGS Entitlements Check (for Secure Group content) →
 Access Granted / Denied → Platform Features
 ```
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # 18. Related Architecture Patterns
 
@@ -1409,11 +1407,11 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
 
 | Document | Location |
 |----------|----------|
-| ECA & AI Enablement Architecture | `ECA_AI_Enablement_Architecture_DocumentV1.md` |
-| SAP Joule Architecture Overview | `Current AI Architecture Options/SAP-Joule-Architecture-Overview.md` |
+| ECA & AI Enablement Architecture | `ECA Architecture/ECA-AI-Architecture-Overview.md` |
+| SAP Joule Architecture Overview | `Joule Architecture/SAP-Joule-AI-Architecture-Overview.md` |
 | AI Architecture Selection Guide | `AI-Architecture-Selection-Guide.md` |
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # Appendix A: Component Glossary
 
@@ -1443,13 +1441,11 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
 | **TXT** | Plain text file format |
 | **TB / LR** | Top-to-Bottom / Left-to-Right – Mermaid flowchart direction indicators used in architecture diagrams |
 
----
-
 *Generated on March 2, 2026*  
 *Source: iGPT platform analysis (https://igpt.intel.com/chat)*  
 *Modules: 10 | Features: 55 | Security Features: 6 | Integrations: 7*
 
-<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"><p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents"> ⬆ Table of Contents</a></p></div>
 
 # Document Control
 
@@ -1461,6 +1457,11 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
 **Classification**: Internal Use  
 **Review Cycle**: Quarterly  
 **Next Review**: June 2026
+
+<p align="right" style="font-size: 9pt; margin: 0;"><a href="#table-of-contents">⬆ Table of Contents</a></p>
+
+<p align="center" style="font-size: 10pt; color: #0071c5; font-weight: bold; margin-top: 1em;">iGPT Architecture Overview</p>
+<p align="center" style="font-size: 9pt; color: #666;">End of Document</p>
 
 <style>
 @media print {
@@ -1483,7 +1484,6 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
     @bottom-left { content: ""; }
     @bottom-right { content: ""; }
   }
-  /* Title page: force single-page fit */
   .title-page {
     page-break-inside: avoid;
     page-break-after: always;
@@ -1498,14 +1498,21 @@ For detailed use case routing, decision frameworks, and guidance on choosing bet
   .title-page h3 { font-size: 12pt; margin: 0.1em 0; }
   .title-page h4 { font-size: 11pt; margin: 0.1em 0 0.5em; }
   .title-page p  { margin: 0.2em 0; }
-  body { font-size: 10pt; line-height: 1.4; }
-  h1 { font-size: 18pt; page-break-after: avoid; margin-top: 0.5em; }
-  h2 { font-size: 14pt; page-break-after: avoid; margin-top: 0.4em; }
-  h3 { font-size: 12pt; page-break-after: avoid; margin-top: 0.3em; }
-  table { page-break-inside: avoid; font-size: 9pt; width: 100%; }
-  figure, .mermaid { page-break-inside: avoid; }
-  pre { page-break-inside: avoid; font-size: 8pt; }
-  p { margin: 0.3em 0; }
-  ul, ol { margin: 0.2em 0; }
+  body { font-size: 10pt; line-height: 1.35; }
+  h1 { font-size: 18pt; page-break-after: avoid; margin: 0.4em 0 0.15em; }
+  h2 { font-size: 14pt; page-break-after: avoid; margin: 0.35em 0 0.1em; }
+  h3 { font-size: 12pt; page-break-after: avoid; margin: 0.25em 0 0.08em; }
+  h4 { font-size: 11pt; page-break-after: avoid; margin: 0.2em 0 0.05em; }
+  table { page-break-inside: avoid; font-size: 9pt; width: 100%; margin: 0.25em 0; border-collapse: collapse; }
+  th, td { padding: 2pt 4pt; }
+  figure, .mermaid { page-break-inside: avoid; margin: 0.3em 0; }
+  pre { page-break-inside: avoid; font-size: 8pt; margin: 0.25em 0; padding: 0.3em; }
+  p { margin: 0.2em 0; }
+  ul, ol { margin: 0.15em 0; padding-left: 1.5em; }
+  li { margin: 0.05em 0; }
+  blockquote { margin: 0.2em 0; padding: 0.15em 0.5em; }
+  p, li { orphans: 3; widows: 3; }
+  h1 + *, h2 + *, h3 + *, h4 + * { page-break-before: avoid; }
+  hr { margin: 0.2em 0; }
 }
 </style>
